@@ -1,23 +1,27 @@
-import HeaderComponent from "./components/HeaderComponent"
+import React, { useRef } from "react";
+import HeaderComponent from "./components/HeaderComponent";
 import SliderComponent from "./components/SliderComponent";
 import SplineComponent from "./components/SplineComponent";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 function App() {
-  let slides = [
-    "/slider_3.jpg",
-    "/slider_2.jpg",
-    "/slider_1.jpg"
-  ]
+  const sliderRef = useRef(null);
+  const splineRef = useRef(null);
+  const slides = ["/slider_3.jpg", "/slider_2.jpg", "/slider_1.jpg"];
+
   return (
-    <div className="flex flex-col h-app-container">
-      <HeaderComponent />
-      <div className="order-1 h-slider-component">
-        <SliderComponent slides={slides} />
+    <Router>
+      <div>
+        <HeaderComponent sliderRef={sliderRef} splineRef={splineRef} />
+        <div ref={sliderRef}>
+          <SliderComponent slides={slides} />
+        </div>
+        <div ref={splineRef}>
+          <SplineComponent />
+        </div>
       </div>
-      <div className="order-2 h-spline-component">
-        <SplineComponent />
-      </div>
-    </div>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;

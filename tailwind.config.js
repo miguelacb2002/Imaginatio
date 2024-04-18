@@ -5,9 +5,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    'app-container': '100vh',
-    'slider-component': '50vh',
-    'spline-component': '50vh',
     extend: {
       colors: {
         roseImaginatio: '#F241D5',
