@@ -6,14 +6,20 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        neonRave:['NeonRave']
+      },
       colors: {
-        roseImaginatio: '#F241D5',
+        roseImaginatio: {
+          light:'#E55D9B',
+          dark:'#BF82A3'
+        },
         blueImaginatio: {
           light:'#5852f2',
           dark:'#5207f2'
         },
-        purpleImaginatio: '#3e2f73',
-        orangeImaginatio: '#f27b13' 
+        purpleImaginatio: '#664797',
+        orangeImaginatio: '#F9AA19' 
 
 
       }

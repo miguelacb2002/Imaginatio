@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { RiArrowDropLeftLine } from "react-icons/ri";
 import { RiArrowDropRightLine } from "react-icons/ri";
+import { RiInstagramLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 const SliderComponent =({slides})=>{
   let [current, setCurrent] = useState(0)
   let previousSlide =()=>{
@@ -14,8 +16,8 @@ const SliderComponent =({slides})=>{
 
   return(
     
-  <div className="overflow-hidden h-[90vh] md:h-[90vh] relative text-center bg-slate-300 ">
-    <h1 className="text-purpleImaginatio text-2xl md:text-4xl py-3 md:pt-10">IMAGINATIO</h1>
+  <div className="overflow-hidden h-[90vh] md:h-[90vh] relative text-center bg-gradient-to-l from-roseImaginatio-light to-roseImaginatio-dark ">
+    <h1 className="text-white text-4xl md:text-4xl py-3 md:pt-10 font-neonRave">IMAGINATIO</h1>
   <div className={`flex items-center transition ease-out duration-40 translate-x-`}
   style={{
     transform: `translateX(-${current*100}%)`,
@@ -37,6 +39,12 @@ const SliderComponent =({slides})=>{
       </div>
     ))}
   </div>
+  <Link to="https://www.instagram.com/ing.enmultimedia/" className="">
+    
+  <button className="absolute bottom-0 left-50 transform -translate-x-1/2 mb-0 text-white text-6xl pb-14 md:pb-44 lg:pb-16 hover:text-7x hover:text-purpleImaginatio">
+            <RiInstagramLine /> 
+    </button>
+    </Link>
 </div>
   )
 }
