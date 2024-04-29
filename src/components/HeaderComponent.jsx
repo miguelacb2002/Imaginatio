@@ -28,13 +28,13 @@ const HeaderComponent = ({ sliderRef, splineRef, appRef }) => {
           HOME
         </Link>
         <Link
-          className=" text-xl md:text-2xl glitch " data-glitch="spline"
+          className=" text-xl md:text-2xl glitch " data-glitch="content"
           to="/spline"  
           onClick={() => {
             handleNavClick(splineRef);
           }}
         >
-          SPLINE
+          CONTENT
         </Link>
         <Link
           className=" text-xl md:text-2xl glitch " data-glitch="app"
