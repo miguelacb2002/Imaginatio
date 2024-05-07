@@ -2,54 +2,67 @@ import { useState, useEffect } from "react";
 import { RiArrowDropLeftLine } from "react-icons/ri";
 import { RiArrowDropRightLine } from "react-icons/ri";
 
-const SliderComponent = ({ slides, interval = 5000 }) => {
-  let [current, setCurrent] = useState(0);
+const SliderComponent = ({ slides, mobileSlides, interval = 5000 }) => {
+  const [esMovil, setEsMovil] = useState(window.innerWidth <= 768); 
 
-  const previousSlide = () => {
-    if (current === 0) {
-      setCurrent(slides.length - 1);
-    } else {
-      setCurrent(current - 1);
-    }
+  const manejarCambioDeTamaño = () => {
+    setEsMovil(window.innerWidth <= 768);
   };
-
-  const nextSlide = () => {
-    if (current === slides.length - 1) {
-      setCurrent(0);
-    } else {
-      setCurrent(current + 1);
-    }
-  };
-
 
   useEffect(() => {
-    let timerId = null;
+    window.addEventListener("resize", manejarCambioDeTamaño);
+    return () => window.removeEventListener("resize", manejarCambioDeTamaño);
+  }, []);
 
-    const autoSlide = () => {
-      setCurrent((prevCurrent) => (prevCurrent === slides.length - 1 ? 0 : prevCurrent + 1));
+  let [actual, setActual] = useState(0);
+
+  const diapositivaAnterior = () => {
+    if (actual === 0) {
+      setActual(esMovil ? mobileSlides.length - 1 : slides.length - 1);
+    } else {
+      setActual(actual - 1);
+    }
+  };
+
+  const siguienteDiapositiva = () => {
+    if (actual === (esMovil ? mobileSlides.length - 1 : slides.length - 1)) {
+      setActual(0);
+    } else {
+      setActual(actual + 1);
+    }
+  };
+
+  useEffect(() => {
+    let temporizador = null;
+
+    const cambioAutomatico = () => {
+      setActual((anteriorActual) =>
+        anteriorActual === (esMovil ? mobileSlides.length - 1 : slides.length - 1) ? 0 : anteriorActual + 1
+      );
     };
 
-    timerId = setInterval(autoSlide, interval);
+    temporizador = setInterval(cambioAutomatico, interval);
 
-    return () => {
-      clearInterval(timerId);
-    };
-  }, [slides.length, interval]); 
+    return () => clearInterval(temporizador);
+  }, [slides.length, mobileSlides.length, interval, esMovil]);
+
+  // Elige las diapositivas según el tamaño de la pantalla
+  const mostrarDiapositivas = esMovil ? mobileSlides : slides;
 
   return (
     <div className="overflow-hidden h-[90vh] md:h-[90vh] relative text-center bg-gradient-to-l from-roseImaginatio-light to-roseImaginatio-dark ">
       <h1 className="text-white text-4xl md:text-4xl py-3 md:pt-10 font-neonRave">IMAGINATIO</h1>
-      <div className={`flex items-center transition ease-out duration-40 translate-x-`} style={{ transform: `translateX(-${current * 100}%)` }}>
-        {slides.map((s, index) => (
+      <div className={`flex items-center transition ease-out duration-40 translate-x-`} style={{ transform: `translateX(-${actual * 100}%)` }}>
+        {mostrarDiapositivas.map((s, index) => (
           <div key={index} className="relative w-full flex-shrink-0 sm:pt-[5vh] sm:px-[4vh] px-[2vh] h-[80vh] sm:h-[70vh]">
-            <img src={s} alt={`Slide ${index}`} className="w-full h-full object-cover rounded-lg" />
+            <img src={s} alt={`Diapositiva ${index}`} className="w-full h-full object-cover rounded-lg" />
             <div className="absolute top-1/2 -translate-y-1/2 left-5 text-white text-6xl sm:text-8xl">
-              <button onClick={previousSlide}>
+              <button onClick={diapositivaAnterior}>
                 <RiArrowDropLeftLine />
               </button>
             </div>
             <div className="absolute top-1/2 -translate-y-1/2 right-5 text-white text-6xl sm:text-8xl">
-              <button onClick={nextSlide}>
+              <button onClick={siguienteDiapositiva}>
                 <RiArrowDropRightLine />
               </button>
             </div>

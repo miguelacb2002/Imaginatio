@@ -6,21 +6,27 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AppComponent from "./components/AppComponent";
 import FooterComponent from "./components/FooterComponent";
 import EventComponent from "./components/EventComponent";
+import ScheduleComponent from "./components/ScheduleComponent";
 
 function App() {
   const sliderRef = useRef(null);
+  const scheduleRef = useRef(null);
   const splineRef = useRef(null);
   const appRef = useRef(null);
   const eventRef = useRef(null)
   const fotRef = useRef(null);
-  const slides = ["/slider_1.png", "/slider_2.png", "/slider_3.png","/slider_4.jpg"];
+  const mobileSlides = ["/slider_1.png","/slider_2.png","/slider_3.png"];
+  const slides = ["/slider_1PC.png","slider_2PC.png","slider_3PC.png"];
 
   return (
     <Router>
       <div>
-        <HeaderComponent sliderRef={sliderRef} splineRef={splineRef} appRef={appRef} eventRef={eventRef}/>
+        <HeaderComponent sliderRef={sliderRef} scheduleRef={scheduleRef} splineRef={splineRef} appRef={appRef} eventRef={eventRef}/>
         <div ref={sliderRef}>
-          <SliderComponent slides={slides} />
+          <SliderComponent slides={slides} mobileSlides={mobileSlides} />
+        </div>
+        <div ref={scheduleRef}>
+          <ScheduleComponent/>
         </div>
         <div ref={splineRef}>
           <SplineComponent />
