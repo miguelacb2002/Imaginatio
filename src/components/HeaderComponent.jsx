@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { RiCloseLine, RiMenuLine } from "react-icons/ri";
 import "../glitch.css";
 
-const HeaderComponent = ({ sliderRef, splineRef, appRef }) => {
+const HeaderComponent = ({ sliderRef, splineRef, appRef, eventRef }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleNavClick = (ref) => {
@@ -21,20 +21,29 @@ const HeaderComponent = ({ sliderRef, splineRef, appRef }) => {
         } top-0 xl:static flex-1 flex flex-col xl:flex-row items-center justify-center xl:justify-end gap-10 transition-all duration-500 text-white z-50 md:text-3xl`}
       >
         <Link
-          className=" text-xl md:text-2xl glitch " data-glitch="Home"
+          className=" text-xl md:text-2xl glitch " data-glitch="INICIO"
           to="/Home"
           onClick={() => handleNavClick(sliderRef)}
         >
-          HOME
+          INICIO
         </Link>
         <Link
-          className=" text-xl md:text-2xl glitch " data-glitch="content"
-          to="/spline"  
+          className=" text-xl md:text-2xl glitch " data-glitch="CHARLAS"
+          to="/CHARLAS"  
           onClick={() => {
             handleNavClick(splineRef);
           }}
         >
-          CONTENT
+          CHARLAS
+        </Link>
+        <Link
+          className=" text-xl md:text-2xl glitch " data-glitch="ACTIVIDADES"
+          to="/spline"  
+          onClick={() => {
+            handleNavClick(eventRef);
+          }}
+        >
+          ACTIVIDADES
         </Link>
         <Link
           className=" text-xl md:text-2xl glitch " data-glitch="app"
