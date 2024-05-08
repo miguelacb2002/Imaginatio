@@ -28,7 +28,7 @@ export default {
           dark:'#5207f2'
         },
         purpleImaginatio: '#664797',
-        orangeImaginatio: '#F9AA19' 
+        orangeImaginatio: '#230221' 
       }
     },
   },

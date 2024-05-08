@@ -15,8 +15,8 @@ function App() {
   const appRef = useRef(null);
   const eventRef = useRef(null)
   const fotRef = useRef(null);
-  const mobileSlides = ["/slider_1.png","/slider_2.png","/slider_3.png"];
-  const slides = ["/slider_1PC.png","slider_2PC.png","slider_3PC.png"];
+  const mobileSlides = ["/slider_1.png","/slider_2.png","/slider_3.png","/slider_4.png","/slider_5.png"];
+  const slides = ["/slider_1PC.png","slider_2PC.png","slider_3PC.png","slider_4PC.png","slider_5PC.png"];
 
   return (
     <Router>

@@ -46,15 +46,15 @@ const SliderComponent = ({ slides, mobileSlides, interval = 5000 }) => {
     return () => clearInterval(temporizador);
   }, [slides.length, mobileSlides.length, interval, esMovil]);
 
-  // Elige las diapositivas según el tamaño de la pantalla
+
   const mostrarDiapositivas = esMovil ? mobileSlides : slides;
 
   return (
-    <div className="overflow-hidden h-[90vh] md:h-[90vh] relative text-center bg-gradient-to-l from-roseImaginatio-light to-roseImaginatio-dark ">
-      <h1 className="text-white text-4xl md:text-4xl py-3 md:pt-10 font-neonRave">IMAGINATIO</h1>
+    <div className="overflow-hidden h-[90vh] md:h-[90vh] relative text-center bg-orangeImaginatio ">
+      
       <div className={`flex items-center transition ease-out duration-40 translate-x-`} style={{ transform: `translateX(-${actual * 100}%)` }}>
         {mostrarDiapositivas.map((s, index) => (
-          <div key={index} className="relative w-full flex-shrink-0 sm:pt-[5vh] sm:px-[4vh] px-[2vh] h-[80vh] sm:h-[70vh]">
+          <div key={index} className="relative w-full flex-shrink-0 sm:pt-[5vh] sm:px-[4vh] px-[2vh] h-[85vh] sm:h-[80vh]">
             <img src={s} alt={`Diapositiva ${index}`} className="w-full h-full object-cover rounded-lg" />
             <div className="absolute top-1/2 -translate-y-1/2 left-5 text-white text-6xl sm:text-8xl">
               <button onClick={diapositivaAnterior}>

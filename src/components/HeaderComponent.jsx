@@ -5,9 +5,9 @@ import "../glitch.css";
 
 const HeaderComponent = ({ sliderRef, scheduleRef, splineRef, appRef, eventRef }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const menuRef = useRef(null); // Ref to hold the menu element
+  const menuRef = useRef(null); 
 
-  // Handle click outside the menu on mobile
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -20,31 +20,30 @@ const HeaderComponent = ({ sliderRef, scheduleRef, splineRef, appRef, eventRef }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuRef]); // Dependency array ensures the effect runs only when menuRef changes
+  }, [menuRef]); 
 
   const handleNavClick = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
-    // Close menu after clicking a navigation link on mobile
-    if (window.innerWidth <= 768) { // Adjust breakpoint as needed
+    if (window.innerWidth <= 768) { 
       setShowMenu(false);
     }
   };
 
   return (
     <header
-      className="sticky top-0 flex items-center justify-between xl:justify-start w-full bg-purpleImaginatio p-4 px-8 h-[10vh] z-50 "
+      className="sticky top-0 flex items-center justify-between xl:justify-start w-full bg-orangeImaginatio p-4 px-8 h-[10vh] z-50 "
     >
-      <div className="xl:w-1/6 text-center text-white h-full xl:px-0 md:px-[2vh] sm:px-0">
+      <div className="xl:w-1/6 xl:hidden text-center text-white h-full xl:px-0 md:px-[2vh] sm:px-0">
         <img className="h-full object-contain" src="/logo.png" alt="" />
       </div>
       <nav
-        className={`fixed bg-purpleImaginatio xl:bg-purpleImaginatio w-[80%] md:w[30%] xl:w-full h-full ${
+        className={`fixed bg-orangeImaginatio w-[80%] md:w[30%] xl:w-full h-full ${
           showMenu ? "left-0" : "-left-full"
-        } top-0 xl:static flex-1 flex flex-col xl:flex-row items-center justify-center xl:justify-end gap-10 transition-all duration-500 text-white z-50 md:text-3xl`}
-        ref={menuRef} // Assign the ref to the menu element
+        } top-0 xl:static flex-1 flex flex-col xl:flex-row items-center justify-center xl:justify-center gap-10 transition-all duration-500 text-white z-50 md:text-3xl`}
+        ref={menuRef} 
       >
         <Link
-          className=" text-xl md:text-2xl glitch lg:hidden"
+          className=" text-xl md:text-sm glitch lg:hidden"
           data-glitch="INICIO"
           to="/Home"
           onClick={() => handleNavClick(sliderRef)}
@@ -52,7 +51,7 @@ const HeaderComponent = ({ sliderRef, scheduleRef, splineRef, appRef, eventRef }
           INICIO
         </Link>
         <Link
-          className=" text-xl md:text-2xl glitch "
+          className=" text-xl md:text-sm glitch "
           data-glitch="CRONOGRAMA"
           to="/schedule"
           onClick={() => {
@@ -62,7 +61,7 @@ const HeaderComponent = ({ sliderRef, scheduleRef, splineRef, appRef, eventRef }
           CRONOGRAMA
         </Link>
         <Link
-          className=" text-xl md:text-2xl glitch "
+          className=" text-xl md:text-sm glitch "
           data-glitch="CHARLAS"
           to="/CHARLAS"
           onClick={() => {
@@ -72,7 +71,7 @@ const HeaderComponent = ({ sliderRef, scheduleRef, splineRef, appRef, eventRef }
           CHARLAS
         </Link>
         <Link
-          className=" text-xl md:text-2xl glitch "
+          className=" text-xl md:text-sm glitch "
           data-glitch="ACTIVIDADES"
           to="/spline"
           onClick={() => {
@@ -82,7 +81,7 @@ const HeaderComponent = ({ sliderRef, scheduleRef, splineRef, appRef, eventRef }
           ACTIVIDADES
         </Link>
         <Link
-          className=" text-xl md:text-2xl glitch "
+          className=" text-xl md:text-sm glitch "
           data-glitch="app"
           to="/app"
           onClick={() => handleNavClick(appRef)}
