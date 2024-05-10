@@ -1,7 +1,7 @@
 import Spline from '@splinetool/react-spline';
 const EventComponent = () => {
   return (
-    <div className=' usm:h-[205vh] msm:h-[180vh] sm2:h-[190vh] lg:h-[90vh] bg-orangeImaginatio pb-96'>
+    <div className=' usm:h-[205vh] msm:h-[180vh] sm2:h-[190vh] lg:h-[90vh] bg-[url(/Reticula.png)] bg-cover bg-center'>
     <h1 className="text-white text-4xl md:text-4xl  py-10 md:pt-[5vh] text-center font-neonRave">ACTIVIDADES</h1>
   
   <div className=' flex justify-center '>  

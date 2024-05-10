@@ -7,8 +7,14 @@ import AppComponent from "./components/AppComponent";
 import FooterComponent from "./components/FooterComponent";
 import EventComponent from "./components/EventComponent";
 import ScheduleComponent from "./components/ScheduleComponent";
+import ReactGA from 'react-ga4';
+
 
 function App() {
+  React.useEffect(() => {
+    ReactGA.initialize('G-ETK8B1NRQM'); // Reemplaza con tu ID real
+  }, []);
+
   const sliderRef = useRef(null);
   const scheduleRef = useRef(null);
   const splineRef = useRef(null);

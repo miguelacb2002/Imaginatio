@@ -50,7 +50,7 @@ const SliderComponent = ({ slides, mobileSlides, interval = 5000 }) => {
   const mostrarDiapositivas = esMovil ? mobileSlides : slides;
 
   return (
-    <div className="overflow-hidden h-[90vh] md:h-[90vh] relative text-center bg-orangeImaginatio ">
+    <div className="overflow-hidden h-[90vh] md:h-[90vh] relative text-center bg-[url(/Reticula.png)] bg-cover bg-center ">
       
       <div className={`flex items-center transition ease-out duration-40 translate-x-`} style={{ transform: `translateX(-${actual * 100}%)` }}>
         {mostrarDiapositivas.map((s, index) => (
