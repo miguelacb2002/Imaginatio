@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const AppComponent = () => {
   return (
     <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 h-[90vh] md:h-[90vh] bg-[url(/Ilustracion.png)] bg-cover bg-center">
@@ -8,7 +9,9 @@ const AppComponent = () => {
       <p className="text-xl text-white font-medium pt-4 pb-8">Únete a LaTa y enfrenta los diferentes retos que el 
       <span className=" font-thin text-cyan-300 font-neonRave"> Imaginatio</span> tiene preparados para ti
       </p>
-      <button className=" items-center justify-center text-xl md:text-2xl glitch font-neonRave " data-glitch="PROXIMAMENTE">PROXIMAMENTE</button>
+      <Link to="https://forms.office.com/r/z6jnPvPvZz" >
+      <button className=" items-center justify-center text-xl md:text-2xl glitch font-neonRave " data-glitch="DESCARGAR">DESCARGAR</button>
+      </Link>
     </div>
   </div>
 </div>
